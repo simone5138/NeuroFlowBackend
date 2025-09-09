@@ -7,14 +7,16 @@ import org.springframework.http.HttpMethod;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.http.HttpHeaders;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.util.Arrays;
 
 @Configuration
 @EnableWebMvc
-public class WebConfig {
+public class WebConfig implements WebMvcConfigurer {
     @Bean
     public FilterRegistrationBean<CorsFilter> corsFilter() {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
@@ -40,4 +42,22 @@ public class WebConfig {
         bean.setOrder(-102); //set bean to lowest position to be executed before any spring bean
         return bean;
     }
+
+    //NEW METHOD need to understand what to use
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/api/v1/**")
+            // metti qui tutti i tuoi frontend (dev e prod)
+            .allowedOriginPatterns(
+                    "http://localhost:4200",
+                    "https://neuroflow.dpdns.org",
+                    "https://frontend.neuroflow.dpdns.org"
+            )
+            .allowedMethods("GET","POST","PUT","PATCH","DELETE","OPTIONS")
+            .allowedHeaders("*")
+            .exposedHeaders("Location")   // opzionale
+            .allowCredentials(true)
+            .maxAge(3600);
+    }
 }
+
