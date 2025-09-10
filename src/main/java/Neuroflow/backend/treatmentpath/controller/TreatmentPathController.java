@@ -1,4 +1,4 @@
-package Neuroflow.backend.treatmentpath;
+package Neuroflow.backend.treatmentpath.controller;
 
 import Neuroflow.backend.treatmentpath.dto.*;
 import Neuroflow.backend.treatmentpath.service.TreatmentPathService;
