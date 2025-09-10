@@ -2,89 +2,55 @@
 package Neuroflow.backend.entities;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-
-import java.sql.Date;
-import java.util.Optional;
+import java.time.LocalDate;
 
 @Entity
-@Table(name ="treatment_path")
-@Getter
+@Table(name = "treatment_path")
 public class TreatmentPath {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "type", nullable = false)
+    @Column(nullable = false)              // valuta enum se hai un set finito di tipi
     private String type;
 
     @Column(name = "date_start", nullable = false)
-    private Date dateStart;
+    private LocalDate dateStart;
 
     @Column(name = "date_end")
-    private Date dateEnd;
+    private LocalDate dateEnd;
 
-    @ManyToOne(targetEntity = Patient.class, fetch = FetchType.LAZY)
-    @JoinColumn(name = "patient_id", nullable = false)
-    private Patient patient;
+    // Per semplicità usiamo gli ID; in futuro puoi sostituirli con relazioni JPA (@ManyToOne)
+    @Column(name = "patient_id", nullable = false)
+    private Long patientId;
 
-    @ManyToOne(targetEntity = User.class, fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    @Column(name = "report_id")
+    private Long reportId;
 
-    @OneToOne(targetEntity = Report.class, fetch = FetchType.LAZY)
-    @JoinColumn(name = "report_id") //can be null. should be possible to add treatment path without still adding report (OSS exp)
-    private Report report;
+    @Column(name = "user_id")
+    private Long userId;
 
-    public TreatmentPath() {}
+    // --- getters & setters ---
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
 
-    public TreatmentPath(String type, String dateStart, String dateEnd, Patient patient, User user, Report report) {
-        this.type = type;
-        this.dateStart = Date.valueOf(dateStart);
-        this.dateEnd = Date.valueOf(dateEnd);
-        this.patient = patient;
-        this.user = user;
-        this.report = report;
-    }
+    public String getType() { return type; }
+    public void setType(String type) { this.type = type; }
 
-    public TreatmentPath(Long id, String type, String dateStart, Optional<String> dateEnd, Patient patient, User user, Optional<Report> report) {
-        this.id = id;
-        this.type = type;
-        this.dateStart = Date.valueOf(dateStart);
-        this.dateEnd = dateEnd.map(Date::valueOf).orElse(null);
-        this.patient = patient;
-        this.user = user;
-        this.report = report.orElse(null);
-    }
+    public LocalDate getDateStart() { return dateStart; }
+    public void setDateStart(LocalDate dateStart) { this.dateStart = dateStart; }
 
+    public LocalDate getDateEnd() { return dateEnd; }
+    public void setDateEnd(LocalDate dateEnd) { this.dateEnd = dateEnd; }
 
-    public TreatmentPath(String type, String dateStart, String dateEnd, Patient patient, User user) {
-        this.type = type;
-        this.dateStart = Date.valueOf(dateStart);
-        this.dateEnd = Date.valueOf(dateEnd);
-        this.patient = patient;
-        this.user = user;
-    }
-    public TreatmentPath(String type, String dateStart, Patient patient, User user) {
-        this.type = type;
-        this.dateStart = Date.valueOf(dateStart);
-        this.patient = patient;
-        this.user = user;
-    }
+    public Long getPatientId() { return patientId; }
+    public void setPatientId(Long patientId) { this.patientId = patientId; }
 
-    public String getDateStart() {
-        return dateStart.toString();
-    }
+    public Long getReportId() { return reportId; }
+    public void setReportId(Long reportId) { this.reportId = reportId; }
 
-    public Optional<String> getDateEnd() {
-        return Optional.ofNullable(dateEnd).map(Date::toString);
-        /* ===
-        if (dateEnd.isPresent())
-            return Optional.of(dateEnd.get().toString());
-        else return Optional.empty();
-         */
-    }
-
-
+    public Long getUserId() { return userId; }
+    public void setUserId(Long userId) { this.userId = userId; }
+}
 }
