@@ -1,5 +1,6 @@
 package Neuroflow.backend.entities;
 
+import Neuroflow.backend.patient.entity.Patient;
 import jakarta.persistence.*;
 import lombok.Getter;
 

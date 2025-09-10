@@ -1,6 +1,6 @@
 package Neuroflow.backend.controllers;
 
-import Neuroflow.backend.entities.Patient;
+import Neuroflow.backend.patient.entity.Patient;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;

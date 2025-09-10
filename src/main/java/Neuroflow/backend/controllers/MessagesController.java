@@ -1,6 +1,7 @@
 package Neuroflow.backend.controllers;
 
 import Neuroflow.backend.entities.*;
+import Neuroflow.backend.patient.entity.Patient;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
