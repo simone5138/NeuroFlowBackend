@@ -1,7 +1,7 @@
 package Neuroflow.backend.user.dto;
 
 import jakarta.validation.constraints.*;
-import Neuroflow.backend.user.entity.User.Role;
+import java.time.LocalDate;
 
 /**
  * Request body for creating a {@code User}.
@@ -10,13 +10,13 @@ import Neuroflow.backend.user.entity.User.Role;
  * and setters are implemented to expose the request properties.</p>
  */
 public class UserCreateRequest {
-    @NotBlank @Size(max=64)  private String username;
+    @NotBlank @Size(max=255) private String username;
     @NotBlank @Email         private String email;
     @NotBlank @Size(min=8)   private String password; // in chiaro SOLO qui, verrà hashata nel service
-    @Size(max=80)            private String firstName;
-    @Size(max=80)            private String lastName;
-    private Role role = Role.USER;
-    private boolean enabled = true;
+    @NotBlank @Size(max=255) private String firstName;
+    @NotBlank @Size(max=255) private String lastName;
+    private LocalDate dateBirth;
+    @Size(max=255)           private String address;
 
     // getters and setters
     public String getUsername() { return username; }
@@ -34,9 +34,9 @@ public class UserCreateRequest {
     public String getLastName() { return lastName; }
     public void setLastName(String lastName) { this.lastName = lastName; }
 
-    public Role getRole() { return role; }
-    public void setRole(Role role) { this.role = role; }
+    public LocalDate getDateBirth() { return dateBirth; }
+    public void setDateBirth(LocalDate dateBirth) { this.dateBirth = dateBirth; }
 
-    public boolean isEnabled() { return enabled; }
-    public void setEnabled(boolean enabled) { this.enabled = enabled; }
+    public String getAddress() { return address; }
+    public void setAddress(String address) { this.address = address; }
 }
