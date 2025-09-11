@@ -1,6 +1,6 @@
 package Neuroflow.backend.user.dto;
 
-import Neuroflow.backend.user.entity.User.Role;
+import java.time.LocalDate;
 
 /**
  * Data transfer object for {@code User}.
@@ -16,8 +16,8 @@ public class UserDto {
     private String email;
     private String firstName;
     private String lastName;
-    private Role role;
-    private boolean enabled;
+    private LocalDate dateBirth;
+    private String address;
 
     // getters and setters
     public Long getId() { return id; }
@@ -35,9 +35,9 @@ public class UserDto {
     public String getLastName() { return lastName; }
     public void setLastName(String lastName) { this.lastName = lastName; }
 
-    public Role getRole() { return role; }
-    public void setRole(Role role) { this.role = role; }
+    public LocalDate getDateBirth() { return dateBirth; }
+    public void setDateBirth(LocalDate dateBirth) { this.dateBirth = dateBirth; }
 
-    public boolean isEnabled() { return enabled; }
-    public void setEnabled(boolean enabled) { this.enabled = enabled; }
+    public String getAddress() { return address; }
+    public void setAddress(String address) { this.address = address; }
 }

@@ -15,8 +15,8 @@ public class UserMapper {
         d.setEmail(e.getEmail());
         d.setFirstName(e.getFirstName());
         d.setLastName(e.getLastName());
-        d.setRole(e.getRole());
-        d.setEnabled(e.isEnabled());
+        d.setDateBirth(e.getDateBirth());
+        d.setAddress(e.getAddress());
         return d;
     }
 
@@ -26,8 +26,8 @@ public class UserMapper {
         e.setEmail(r.getEmail());
         e.setFirstName(r.getFirstName());
         e.setLastName(r.getLastName());
-        e.setRole(r.getRole());
-        e.setEnabled(r.isEnabled());
+        e.setDateBirth(r.getDateBirth());
+        e.setAddress(r.getAddress());
         // passwordHash viene settata nel Service
         return e;
     }
@@ -36,7 +36,7 @@ public class UserMapper {
         e.setEmail(r.getEmail());
         e.setFirstName(r.getFirstName());
         e.setLastName(r.getLastName());
-        if (r.getRole()!=null) e.setRole(r.getRole());
-        e.setEnabled(r.isEnabled());
+        e.setDateBirth(r.getDateBirth());
+        e.setAddress(r.getAddress());
     }
 }

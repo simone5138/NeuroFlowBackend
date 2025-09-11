@@ -1,7 +1,7 @@
 package Neuroflow.backend.user.dto;
 
 import jakarta.validation.constraints.*;
-import Neuroflow.backend.user.entity.User.Role;
+import java.time.LocalDate;
 
 /**
  * Request body for updating an existing {@code User}.
@@ -11,10 +11,10 @@ import Neuroflow.backend.user.entity.User.Role;
  */
 public class UserUpdateRequest {
     @NotBlank @Email private String email;
-    @Size(max=80)    private String firstName;
-    @Size(max=80)    private String lastName;
-    private Role role;
-    private boolean enabled;
+    @NotBlank @Size(max=255) private String firstName;
+    @NotBlank @Size(max=255) private String lastName;
+    private LocalDate dateBirth;
+    @Size(max=255) private String address;
 
     // getters and setters
     public String getEmail() { return email; }
@@ -26,9 +26,9 @@ public class UserUpdateRequest {
     public String getLastName() { return lastName; }
     public void setLastName(String lastName) { this.lastName = lastName; }
 
-    public Role getRole() { return role; }
-    public void setRole(Role role) { this.role = role; }
+    public LocalDate getDateBirth() { return dateBirth; }
+    public void setDateBirth(LocalDate dateBirth) { this.dateBirth = dateBirth; }
 
-    public boolean isEnabled() { return enabled; }
-    public void setEnabled(boolean enabled) { this.enabled = enabled; }
+    public String getAddress() { return address; }
+    public void setAddress(String address) { this.address = address; }
 }
