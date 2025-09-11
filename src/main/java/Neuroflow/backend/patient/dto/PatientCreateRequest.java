@@ -2,7 +2,15 @@ package Neuroflow.backend.patient.dto;
 
 import jakarta.validation.constraints.*;
 import java.time.LocalDate;
+import lombok.Data;
 
+/**
+ * Request body for creating a {@code Patient}.
+ *
+ * <p>Lombok's {@link Data} annotation supplies the getters and setters used by
+ * the mapper layer.</p>
+ */
+@Data
 public class PatientCreateRequest {
     @NotBlank private String firstName;
     @NotBlank private String lastName;
@@ -17,5 +25,4 @@ public class PatientCreateRequest {
     private boolean caregiver;
     @NotBlank private String phoneNumber;
     @Email private String mail;
-    //TODO:// getters/setters
 }
