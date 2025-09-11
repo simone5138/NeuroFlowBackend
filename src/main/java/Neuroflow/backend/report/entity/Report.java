@@ -1,42 +1,101 @@
 package Neuroflow.backend.report.entity;
 
 import jakarta.persistence.*;
-import java.time.Instant;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "report")
 public class Report {
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name="patient_id", nullable=false)
+    @Column(name = "treatment_path_id", nullable = false)
+    private Long treatmentPathId;
+
+    @Column(name = "patient_id", nullable = false)
     private Long patientId;
 
-    @Column(name="author_user_id")
-    private Long authorUserId;
+    @Column(name = "user_id", nullable = false)
+    private Long userId;
 
-    @Column(nullable=false, length=200)
-    private String title;
+    @Column(name = "opening_date", nullable = false)
+    private LocalDate openingDate;
+
+    @Column(name = "closing_date")
+    private LocalDate closingDate;
 
     @Lob
-    private String content; // testo lungo (markdown/HTML/plain)
+    @Column(nullable = false)
+    private String diagnosis;
 
-    @Column(nullable=false)
-    private Instant createdAt = Instant.now();
+    @Lob
+    @Column(name = "project_course", nullable = false)
+    private String projectCourse;
 
-    @Column(nullable=false)
-    private Instant updatedAt = Instant.now();
+    public Long getId() {
+        return id;
+    }
 
-    @PreUpdate void onUpdate(){ this.updatedAt = Instant.now(); }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-    // getters/setters
-    public Long getId(){return id;} public void setId(Long id){this.id=id;}
-    public Long getPatientId(){return patientId;} public void setPatientId(Long p){this.patientId=p;}
-    public Long getAuthorUserId(){return authorUserId;} public void setAuthorUserId(Long a){this.authorUserId=a;}
-    public String getTitle(){return title;} public void setTitle(String t){this.title=t;}
-    public String getContent(){return content;} public void setContent(String c){this.content=c;}
-    public Instant getCreatedAt(){return createdAt;} public void setCreatedAt(Instant c){this.createdAt=c;}
-    public Instant getUpdatedAt(){return updatedAt;} public void setUpdatedAt(Instant u){this.updatedAt=u;}
+    public Long getTreatmentPathId() {
+        return treatmentPathId;
+    }
+
+    public void setTreatmentPathId(Long treatmentPathId) {
+        this.treatmentPathId = treatmentPathId;
+    }
+
+    public Long getPatientId() {
+        return patientId;
+    }
+
+    public void setPatientId(Long patientId) {
+        this.patientId = patientId;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
+    public LocalDate getOpeningDate() {
+        return openingDate;
+    }
+
+    public void setOpeningDate(LocalDate openingDate) {
+        this.openingDate = openingDate;
+    }
+
+    public LocalDate getClosingDate() {
+        return closingDate;
+    }
+
+    public void setClosingDate(LocalDate closingDate) {
+        this.closingDate = closingDate;
+    }
+
+    public String getDiagnosis() {
+        return diagnosis;
+    }
+
+    public void setDiagnosis(String diagnosis) {
+        this.diagnosis = diagnosis;
+    }
+
+    public String getProjectCourse() {
+        return projectCourse;
+    }
+
+    public void setProjectCourse(String projectCourse) {
+        this.projectCourse = projectCourse;
+    }
 }
 
