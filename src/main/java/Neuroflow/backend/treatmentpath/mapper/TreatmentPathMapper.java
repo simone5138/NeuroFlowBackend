@@ -6,23 +6,23 @@ import Neuroflow.backend.treatmentpath.dto.TreatmentPathUpdateRequest;
 import Neuroflow.backend.treatmentpath.entity.TreatmentPath;
 import org.mapstruct.BeanMapping;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 import org.mapstruct.NullValuePropertyMappingStrategy;
-import org.springframework.web.bind.annotation.Mapping;
 
 import java.util.List;
 
-public class TreatmentPathMapper {
-    @Mapper(componentModel = "spring")
-    public interface TreatmentPathMapper {
+@Mapper(componentModel = "spring")
+public interface TreatmentPathMapper {
 
-        TreatmentPathDto.TreatmentPathDto toDto(TreatmentPath entity);
-        List<TreatmentPathDto> toDtoList(List<TreatmentPath> entities);
+    TreatmentPathDto toDto(TreatmentPath entity);
 
-        @Mapping(target = "id", ignore = true)
-        TreatmentPath toEntity(TreatmentPathCreateRequest req);
+    List<TreatmentPathDto> toDtoList(List<TreatmentPath> entities);
 
-        @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
-        void updateEntityFromDto(TreatmentPathUpdateRequest req, @MappingTarget TreatmentPath entity);
-    }
+    @Mapping(target = "id", ignore = true)
+    TreatmentPath toEntity(TreatmentPathCreateRequest req);
+
+    @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
+    void updateEntityFromDto(TreatmentPathUpdateRequest req, @MappingTarget TreatmentPath entity);
 }
+
