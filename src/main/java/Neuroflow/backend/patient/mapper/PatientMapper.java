@@ -28,9 +28,27 @@ public class PatientMapper {
     }
 
     public void updateEntity(PatientUpdateRequest r, Patient e) {
+        if (r == null || e == null) return;
         e.setFirstName(r.getFirstName());
         e.setLastName(r.getLastName());
-        e.setDateBirth(java.sql.Date.valueOf(r.getDateBirth())); // o LocalDate se cambi entity
+        e.setDateBirth(java.sql.Date.valueOf(r.getDateBirth()));
+        e.setCityBirth(r.getCityBirth());
+        e.setAddress(r.getAddress());
+        e.setGender(r.getGender());
+        e.setOccupation(r.getOccupation());
+        e.setNationality(r.getNationality());
+        e.setStudyYears(r.getStudyYears());
+        e.setMaritalStatus(r.getMaritalStatus());
+        e.setCaregiver(r.isCaregiver());
+        e.setPhoneNumber(r.getPhoneNumber());
+        e.setMail(r.getMail());
+    }
+
+    public void updateEntity(PatientCreateRequest r, Patient e) {
+        if (r == null || e == null) return;
+        e.setFirstName(r.getFirstName());
+        e.setLastName(r.getLastName());
+        e.setDateBirth(java.sql.Date.valueOf(r.getDateBirth()));
         e.setCityBirth(r.getCityBirth());
         e.setAddress(r.getAddress());
         e.setGender(r.getGender());
