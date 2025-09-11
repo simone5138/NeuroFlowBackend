@@ -16,7 +16,7 @@ import javax.sql.DataSource;
 import java.util.Properties;
 
 
-@EnableJpaRepositories(basePackages = "Neuroflow.backend.repositories")
+@EnableJpaRepositories(basePackages = "Neuroflow.backend")
 @Configuration
 public class DataBaseConfig{
     @Bean
@@ -33,7 +33,7 @@ public class DataBaseConfig{
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(dataSource());
-        em.setPackagesToScan("Neuroflow.backend.entities");
+        em.setPackagesToScan("Neuroflow.backend");
         em.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
         em.setJpaProperties(hibernateProperties()); //added to fix nullpointerexception
         return em;
