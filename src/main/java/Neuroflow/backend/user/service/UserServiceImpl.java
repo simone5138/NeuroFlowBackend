@@ -56,5 +56,14 @@ public class UserServiceImpl implements UserService {
         e.setPasswordHash(passwordEncoder.encode(r.getNewPassword()));
         repo.save(e);
     }
+
+    @Override
+    public AuthResponse login(LoginRequest req) {
+        User u = repo.findByUsername(req.getUsername()).orElse(null);
+        if (u == null || !passwordEncoder.matches(req.getPassword(), u.getPasswordHash())) {
+            return new AuthResponse(false, "Invalid credentials", null);
+        }
+        return new AuthResponse(true, "Login successful", mapper.toDto(u));
+    }
 }
 
