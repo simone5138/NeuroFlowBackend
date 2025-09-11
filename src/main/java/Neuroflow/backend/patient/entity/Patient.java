@@ -1,13 +1,13 @@
 package Neuroflow.backend.patient.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
+import lombok.Data;
 
 import java.sql.Date;
 
 @Entity
 @Table(name ="patient")
-@Getter
+@Data
 public class Patient {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
@@ -84,14 +84,6 @@ public class Patient {
         this.caregiver = caregiver;
         this.phoneNumber = phoneNumber;
         this.mail = mail;
-    }
-
-    public String getDateBirth() {
-        return dateBirth.toString();
-    }
-
-    public boolean getCaregiver() {
-        return this.caregiver;
     }
 
 }
