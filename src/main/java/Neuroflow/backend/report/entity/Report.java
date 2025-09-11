@@ -26,12 +26,10 @@ public class Report {
     @Column(name = "closing_date")
     private LocalDate closingDate;
 
-    @Lob
-    @Column(nullable = false)
+    @Column(columnDefinition = "TEXT", nullable = false)
     private String diagnosis;
 
-    @Lob
-    @Column(name = "project_course", nullable = false)
+    @Column(name = "project_course", columnDefinition = "TEXT", nullable = false)
     private String projectCourse;
 
     public Long getId() {
