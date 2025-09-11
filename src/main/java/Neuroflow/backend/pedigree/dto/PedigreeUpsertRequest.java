@@ -6,7 +6,8 @@ import jakarta.validation.constraints.NotBlank;
 public class PedigreeUpsertRequest {
     @NotNull private Long patientId;
     @NotBlank private String data; // JSON string
-    // getters/setters
+    @NotNull private Long createdBy;
+    @NotNull private Long lastModifiedBy;
 
     public Long getPatientId() {
         return patientId;
@@ -22,5 +23,21 @@ public class PedigreeUpsertRequest {
 
     public void setData(String data) {
         this.data = data;
+    }
+
+    public Long getCreatedBy() {
+        return createdBy;
+    }
+
+    public void setCreatedBy(Long createdBy) {
+        this.createdBy = createdBy;
+    }
+
+    public Long getLastModifiedBy() {
+        return lastModifiedBy;
+    }
+
+    public void setLastModifiedBy(Long lastModifiedBy) {
+        this.lastModifiedBy = lastModifiedBy;
     }
 }
