@@ -19,13 +19,29 @@ public class ReportController {
     @GetMapping
     public Page<ReportDto> list(Pageable p,
                                 @RequestParam Optional<Long> patientId,
-                                @RequestParam Optional<Long> authorUserId) {
-        return service.list(p, patientId, authorUserId);
+                                @RequestParam Optional<Long> treatmentPathId,
+                                @RequestParam Optional<Long> userId) {
+        return service.list(p, patientId, treatmentPathId, userId);
     }
 
-    @GetMapping("/{id}") public ReportDto get(@PathVariable Long id){ return service.get(id); }
-    @PostMapping       public ReportDto create(@Valid @RequestBody ReportCreateRequest r){ return service.create(r); }
-    @PutMapping("/{id}") public ReportDto update(@PathVariable Long id, @Valid @RequestBody ReportUpdateRequest r){ return service.update(id, r); }
-    @DeleteMapping("/{id}") public void delete(@PathVariable Long id){ service.delete(id); }
+    @GetMapping("/{id}")
+    public ReportDto get(@PathVariable Long id) {
+        return service.get(id);
+    }
+
+    @PostMapping
+    public ReportDto create(@Valid @RequestBody ReportCreateRequest r) {
+        return service.create(r);
+    }
+
+    @PutMapping("/{id}")
+    public ReportDto update(@PathVariable Long id, @Valid @RequestBody ReportUpdateRequest r) {
+        return service.update(id, r);
+    }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long id) {
+        service.delete(id);
+    }
 }
 

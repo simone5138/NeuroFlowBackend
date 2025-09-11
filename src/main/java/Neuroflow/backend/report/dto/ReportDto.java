@@ -1,21 +1,31 @@
 package Neuroflow.backend.report.dto;
 
-import java.time.Instant;
+import java.time.LocalDate;
 
 public class ReportDto {
     private Long id;
+    private Long treatmentPathId;
     private Long patientId;
-    private Long authorUserId;
-    private String title;
-    private String content;
-    private Instant createdAt;
-    private Instant updatedAt;
+    private Long userId;
+    private LocalDate openingDate;
+    private LocalDate closingDate;
+    private String diagnosis;
+    private String projectCourse;
+
     public Long getId() {
         return id;
     }
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Long getTreatmentPathId() {
+        return treatmentPathId;
+    }
+
+    public void setTreatmentPathId(Long treatmentPathId) {
+        this.treatmentPathId = treatmentPathId;
     }
 
     public Long getPatientId() {
@@ -26,44 +36,44 @@ public class ReportDto {
         this.patientId = patientId;
     }
 
-    public Long getAuthorUserId() {
-        return authorUserId;
+    public Long getUserId() {
+        return userId;
     }
 
-    public void setAuthorUserId(Long authorUserId) {
-        this.authorUserId = authorUserId;
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
-    public String getTitle() {
-        return title;
+    public LocalDate getOpeningDate() {
+        return openingDate;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setOpeningDate(LocalDate openingDate) {
+        this.openingDate = openingDate;
     }
 
-    public String getContent() {
-        return content;
+    public LocalDate getClosingDate() {
+        return closingDate;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setClosingDate(LocalDate closingDate) {
+        this.closingDate = closingDate;
     }
 
-    public Instant getCreatedAt() {
-        return createdAt;
+    public String getDiagnosis() {
+        return diagnosis;
     }
 
-    public void setCreatedAt(Instant createdAt) {
-        this.createdAt = createdAt;
+    public void setDiagnosis(String diagnosis) {
+        this.diagnosis = diagnosis;
     }
 
-    public Instant getUpdatedAt() {
-        return updatedAt;
+    public String getProjectCourse() {
+        return projectCourse;
     }
 
-    public void setUpdatedAt(Instant updatedAt) {
-        this.updatedAt = updatedAt;
+    public void setProjectCourse(String projectCourse) {
+        this.projectCourse = projectCourse;
     }
 }
 

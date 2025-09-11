@@ -2,12 +2,25 @@ package Neuroflow.backend.report.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import java.time.LocalDate;
 
 public class ReportUpdateRequest {
-    @NotNull  private Long patientId;
-    private Long authorUserId;
-    @NotBlank private String title;
-    private String content;
+    @NotNull private Long treatmentPathId;
+    @NotNull private Long patientId;
+    @NotNull private Long userId;
+    @NotNull private LocalDate openingDate;
+    private LocalDate closingDate;
+    @NotBlank private String diagnosis;
+    @NotBlank private String projectCourse;
+
+    public Long getTreatmentPathId() {
+        return treatmentPathId;
+    }
+
+    public void setTreatmentPathId(Long treatmentPathId) {
+        this.treatmentPathId = treatmentPathId;
+    }
+
     public Long getPatientId() {
         return patientId;
     }
@@ -16,27 +29,44 @@ public class ReportUpdateRequest {
         this.patientId = patientId;
     }
 
-    public Long getAuthorUserId() {
-        return authorUserId;
+    public Long getUserId() {
+        return userId;
     }
 
-    public void setAuthorUserId(Long authorUserId) {
-        this.authorUserId = authorUserId;
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
-    public String getTitle() {
-        return title;
+    public LocalDate getOpeningDate() {
+        return openingDate;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setOpeningDate(LocalDate openingDate) {
+        this.openingDate = openingDate;
     }
 
-    public String getContent() {
-        return content;
+    public LocalDate getClosingDate() {
+        return closingDate;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setClosingDate(LocalDate closingDate) {
+        this.closingDate = closingDate;
+    }
+
+    public String getDiagnosis() {
+        return diagnosis;
+    }
+
+    public void setDiagnosis(String diagnosis) {
+        this.diagnosis = diagnosis;
+    }
+
+    public String getProjectCourse() {
+        return projectCourse;
+    }
+
+    public void setProjectCourse(String projectCourse) {
+        this.projectCourse = projectCourse;
     }
 }
+
