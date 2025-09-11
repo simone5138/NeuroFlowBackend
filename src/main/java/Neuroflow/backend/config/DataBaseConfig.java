@@ -51,7 +51,7 @@ public class DataBaseConfig{
         Properties properties = new Properties();
         properties.setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
         properties.setProperty("hibernate.show_sql", "true");
-        properties.setProperty("hibernate.hbm2ddl.auto", "update"); // ensure schema is kept in sync during development
+        properties.setProperty("hibernate.hbm2ddl.auto", "validate"); // please do not change this.
         return properties;
     }
 }
