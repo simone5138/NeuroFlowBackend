@@ -23,10 +23,7 @@ public class TreatmentPath {
     @Column(name = "patient_id", nullable = false)
     private Long patientId;
 
-    @Column(name = "report_id")
-    private Long reportId;
-
-    @Column(name = "user_id")
+    @Column(name = "user_id", nullable = false)
     private Long userId;
 
     public Long getId() { return id; }
@@ -43,9 +40,6 @@ public class TreatmentPath {
 
     public Long getPatientId() { return patientId; }
     public void setPatientId(Long patientId) { this.patientId = patientId; }
-
-    public Long getReportId() { return reportId; }
-    public void setReportId(Long reportId) { this.reportId = reportId; }
 
     public Long getUserId() { return userId; }
     public void setUserId(Long userId) { this.userId = userId; }

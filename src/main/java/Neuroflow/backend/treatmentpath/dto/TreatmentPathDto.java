@@ -9,7 +9,6 @@ public class TreatmentPathDto {
     private LocalDate dateStart;
     private LocalDate dateEnd;
     private Long patientId;
-    private Long reportId;
     private Long userId;
 
     public Long getId() {
@@ -50,14 +49,6 @@ public class TreatmentPathDto {
 
     public void setPatientId(Long patientId) {
         this.patientId = patientId;
-    }
-
-    public Long getReportId() {
-        return reportId;
-    }
-
-    public void setReportId(Long reportId) {
-        this.reportId = reportId;
     }
 
     public Long getUserId() {
