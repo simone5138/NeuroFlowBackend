@@ -11,4 +11,5 @@ public interface UserService {
     UserDto update(Long id, UserUpdateRequest req);
     void delete(Long id);
     void changePassword(Long id, UserPasswordUpdateRequest req);
+    AuthResponse login(LoginRequest req);
 }
