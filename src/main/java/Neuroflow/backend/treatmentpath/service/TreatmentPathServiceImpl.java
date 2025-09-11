@@ -60,4 +60,3 @@ public class TreatmentPathServiceImpl implements TreatmentPathService{
         repo.deleteById(id);
     }
 }
-}
