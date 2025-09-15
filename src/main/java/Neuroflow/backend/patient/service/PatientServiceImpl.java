@@ -23,6 +23,10 @@ public class PatientServiceImpl implements PatientService {
         return repo.findAll(pageable).map(mapper::toDto);
     }
 
+    @Override public Page<PatientFrontendDto> listFrontend(Pageable pageable) {
+        return repo.findAll(pageable).map(mapper::toFrontendDto);
+    }
+
     @Override public PatientDto get(Long id) {
         Patient e = repo.findById(id).orElseThrow(
                 () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Patient not found: " + id));

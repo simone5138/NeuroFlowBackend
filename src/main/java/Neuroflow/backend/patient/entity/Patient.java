@@ -49,6 +49,9 @@ public class Patient {
     @Column(name = "mail")
     private String mail;
 
+    @Column(name = "fiscal_code")
+    private String fiscalCode;
+
     public Patient() {}
 
     public Patient(String firstName,
@@ -63,7 +66,8 @@ public class Patient {
                    String maritalStatus,
                    boolean caregiver,
                    String phoneNumber,
-                   String mail) {
+                   String mail,
+                   String fiscalCode) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.dateBirth = Date.valueOf(dateBirth);
@@ -77,6 +81,7 @@ public class Patient {
         this.caregiver = caregiver;
         this.phoneNumber = phoneNumber;
         this.mail = mail;
+        this.fiscalCode = fiscalCode;
     }
 
     public Patient(Long id,
@@ -92,9 +97,10 @@ public class Patient {
                    String maritalStatus,
                    boolean caregiver,
                    String phoneNumber,
-                   String mail) {
+                   String mail,
+                   String fiscalCode) {
         this(firstName, lastName, dateBirth, cityBirth, address, gender, occupation,
-             nationality, studyYears, maritalStatus, caregiver, phoneNumber, mail);
+             nationality, studyYears, maritalStatus, caregiver, phoneNumber, mail, fiscalCode);
         this.id = id;
     }
 
@@ -208,6 +214,14 @@ public class Patient {
 
     public void setMail(String mail) {
         this.mail = mail;
+    }
+
+    public String getFiscalCode() {
+        return fiscalCode;
+    }
+
+    public void setFiscalCode(String fiscalCode) {
+        this.fiscalCode = fiscalCode;
     }
 }
 

@@ -24,6 +24,7 @@ public class PatientDto {
     private boolean caregiver;
     private String phoneNumber;
     private String mail;
+    private String fiscalCode;
 
     public Long getId() {
         return id;
@@ -135,6 +136,14 @@ public class PatientDto {
 
     public void setMail(String mail) {
         this.mail = mail;
+    }
+
+    public String getFiscalCode() {
+        return fiscalCode;
+    }
+
+    public void setFiscalCode(String fiscalCode) {
+        this.fiscalCode = fiscalCode;
     }
 }
 

@@ -24,6 +24,22 @@ public class PatientMapper {
         d.setCaregiver(e.isCaregiver());
         d.setPhoneNumber(e.getPhoneNumber());
         d.setMail(e.getMail());
+        d.setFiscalCode(e.getFiscalCode());
+        return d;
+    }
+
+    public PatientFrontendDto toFrontendDto(Patient e) {
+        if (e == null) return null;
+        PatientFrontendDto d = new PatientFrontendDto();
+        d.setId(e.getId());
+        d.setFirstName(e.getFirstName());
+        d.setLastName(e.getLastName());
+        d.setDateOfBirth(e.getDateBirth().toLocalDate());
+        d.setEmail(e.getMail());
+        d.setPhone(e.getPhoneNumber());
+        d.setAddress(e.getAddress());
+        d.setGender(e.getGender());
+        d.setFiscalCode(e.getFiscalCode());
         return d;
     }
 
@@ -42,6 +58,7 @@ public class PatientMapper {
         e.setCaregiver(r.isCaregiver());
         e.setPhoneNumber(r.getPhoneNumber());
         e.setMail(r.getMail());
+        e.setFiscalCode(r.getFiscalCode());
     }
 
     public void updateEntity(PatientCreateRequest r, Patient e) {
@@ -59,6 +76,7 @@ public class PatientMapper {
         e.setCaregiver(r.isCaregiver());
         e.setPhoneNumber(r.getPhoneNumber());
         e.setMail(r.getMail());
+        e.setFiscalCode(r.getFiscalCode());
     }
 
     public Patient toEntity(PatientCreateRequest r) {

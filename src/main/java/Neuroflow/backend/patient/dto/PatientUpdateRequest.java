@@ -22,6 +22,7 @@ public class PatientUpdateRequest {
     private boolean caregiver;
     @NotBlank private String phoneNumber;
     @Email private String mail;
+    private String fiscalCode;
 
     public String getFirstName() {
         return firstName;
@@ -125,6 +126,14 @@ public class PatientUpdateRequest {
 
     public void setMail(String mail) {
         this.mail = mail;
+    }
+
+    public String getFiscalCode() {
+        return fiscalCode;
+    }
+
+    public void setFiscalCode(String fiscalCode) {
+        this.fiscalCode = fiscalCode;
     }
 }
 
