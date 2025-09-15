@@ -10,4 +10,6 @@ public interface PatientService {
     PatientDto create(PatientCreateRequest req);
     PatientDto update(Long id, PatientUpdateRequest req);
     void delete(Long id);
+
+    Page<PatientFrontendDto> listFrontend(Pageable pageable);
 }
