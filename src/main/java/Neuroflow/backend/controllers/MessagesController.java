@@ -102,46 +102,6 @@ public class MessagesController {
     }
 
     /**
-     * GET /listpatient listPatient
-     * returns a list of patients
-     * @return ResponseEntity<String>
-     */
-
-    @GetMapping("/listpatient")
-    public ResponseEntity<String> listPatient() {
-        List<Patient> patients = patientService.findAll();
-        ObjectMapper objectMapper = new ObjectMapper();
-        ObjectNode rootNode = objectMapper.createObjectNode();
-        rootNode.put("status", true);
-        rootNode.put("patients", objectMapper.createArrayNode());
-
-        for (Patient patient : patients) {
-            ObjectNode patientNode = objectMapper.createObjectNode();
-            patientNode.put("id", patient.getId());
-            patientNode.put("firstName", patient.getFirstName());
-            patientNode.put("lastName", patient.getLastName());
-            patientNode.put("dateBirth", patient.getDateBirth());
-            patientNode.put("cityBirth", patient.getCityBirth());
-            patientNode.put("address", patient.getAddress());
-            patientNode.put("gender", patient.getGender());
-            patientNode.put("occupation", patient.getOccupation());
-            patientNode.put("nationality", patient.getNationality());
-            patientNode.put("studyYears", patient.getStudyYears());
-            patientNode.put("maritalStatus", patient.getMaritalStatus());
-            patientNode.put("caregiver", patient.getCaregiver());
-            patientNode.put("phoneNumber", patient.getPhoneNumber());
-            patientNode.put("mail", patient.getMail());
-            ((ArrayNode)rootNode.get("patients")).add(patientNode);
-        }
-
-        try {
-            return ResponseEntity.ok(objectMapper.writeValueAsString(rootNode));
-        } catch (JsonProcessingException e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error converting object to JSON");
-        }
-    }
-
-    /**
      * POST /new-patient createPatient
      * get a new patients fron the frontend and writes it into the database.
      * returns the status of the operation and the id
