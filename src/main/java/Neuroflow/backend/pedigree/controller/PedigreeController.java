@@ -6,7 +6,7 @@ import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/v1/patients/{patientId}/pedigree")
+@RequestMapping("/patients/{patientId}/pedigree")
 public class PedigreeController {
     private final PedigreeService service;
     public PedigreeController(PedigreeService s){ this.service=s; }
