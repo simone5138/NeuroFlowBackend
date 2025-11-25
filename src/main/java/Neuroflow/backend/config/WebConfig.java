@@ -46,7 +46,7 @@ public class WebConfig implements WebMvcConfigurer {
     //NEW METHOD need to understand what to use
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/api/v1/**")
+        registry.addMapping("/**")
             // metti qui tutti i tuoi frontend (dev e prod)
             .allowedOriginPatterns(
                     "http://localhost:4200",

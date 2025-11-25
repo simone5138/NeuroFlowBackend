@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/v1/reports")
+@RequestMapping("/reports")
 public class ReportController {
 
     private final ReportService service;

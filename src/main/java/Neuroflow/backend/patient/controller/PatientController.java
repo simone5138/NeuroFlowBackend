@@ -8,7 +8,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/v1/patients")
+@RequestMapping("/patients")
 public class PatientController {
     private final PatientService service;
     public PatientController(PatientService service) { this.service = service; }
