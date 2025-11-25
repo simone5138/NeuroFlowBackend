@@ -17,7 +17,7 @@ import java.util.Optional;
 
 @CrossOrigin(origins = "https://neuroflow.serveo.net", allowedHeaders = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE, RequestMethod.OPTIONS})
 @RestController
-//@RequestMapping("/api")
+@RequestMapping("/api/v1")
 public class MessagesController {
     @Autowired
     private UserService userService;
